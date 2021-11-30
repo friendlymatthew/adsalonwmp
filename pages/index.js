@@ -1,19 +1,18 @@
 import Head from "next/head";
 import React, { useState, useEffect, Component, useRef } from "react";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import "typeface-lato";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { Grid, Paper, Typography, Button } from "@material-ui/core";
 import AppBar from "../components/AppBar";
 import ReactPlayer from "react-player";
-import axios from "axios";
 import { useRouter } from "next/router";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import StopIcon from "@material-ui/icons/Stop";
 import PostIcon from "@material-ui/icons/Backup";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
+import fetch from "isomorphic-unfetch";
 
 const scaffold = createTheme({
   palette: {
@@ -103,10 +102,11 @@ export default function Home() {
         console.log(res);
       } catch (error) {
         console.log(error);
+        console.log(error);
         setErrorFlag(true);
       }
     } else {
-      setErrorFlag(true);
+      
     }
   };
 
@@ -125,7 +125,7 @@ export default function Home() {
     e.preventDefault();
 
     if(submitFlag) {
-      submitted(false);
+      setSubmitted(false);
       return
     }
     setSubmitted(true);
