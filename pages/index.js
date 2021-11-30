@@ -52,6 +52,7 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [submitFlag, setSubmitFlag] = useState(false);
   const [errorFlag, setErrorFlag] = useState(false);
+  const [url, setUrl] = useState("https://www.youtube.com/watch?v=xfzGZB4HhEE")
 
   const createClip = async () => {
     if (submitFlag == false) {
@@ -84,7 +85,7 @@ export default function Home() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            videoSrc: cleanurl,
+            videoSrc: url,
             market: query.market,
             station: query.station,
             title: query.title,
@@ -105,12 +106,10 @@ export default function Home() {
         console.log(error);
         setErrorFlag(true);
       }
-    } else {
-      
     }
   };
 
-  const cleanurl = `https://wesmedia.wesleyan.edu/${query.url}`;
+
 
   const reference = useRef();
 
@@ -132,6 +131,9 @@ export default function Home() {
   };
 
   useEffect(() => {
+
+    //setUrl(`https://wesmedia.wesleyan.edu/${query.url}`);
+
     if(submitted) {
       createClip();
     }
@@ -160,7 +162,7 @@ export default function Home() {
 
         <Grid item xs={1} md={2}></Grid>
         <Grid item xs={10} md={8} container spacing={0}>
-          <Grid align="center" xs={12}>
+          <Grid item align="center" xs={12}>
             {errorFlag ? (
               <div
                 style={{
@@ -229,7 +231,7 @@ export default function Home() {
               </div>
 
               <div style={{}}>
-                <ReactPlayer ref={reference} url={cleanurl} playing controls />
+                <ReactPlayer ref={reference} url={url} playing controls />
               </div>
 
               <div
