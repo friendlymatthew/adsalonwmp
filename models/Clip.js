@@ -10,8 +10,8 @@ const ClipSchema = new Schema({
     coder: String,
     seek: String,
     dateSubmitted: String,
-    start: Object,
-    stop: Object,
+    start: Number,
+    stop: Number,
 })
 
 module.exports = mongoose.models.Clip || mongoose.model("Clip", ClipSchema);

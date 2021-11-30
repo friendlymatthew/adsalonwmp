@@ -92,8 +92,8 @@ export default function Home() {
             snippet: query.snippet,
             coder: query.coder,
             seek: query.seek,
-            start: { startSec },
-            stop: { stopSec },
+            start: startSec,
+            stop: stopSec,
             dateSubmitted: dateplusTime,
           }),
         });
@@ -132,7 +132,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    //setUrl(`https://wesmedia.wesleyan.edu/${query.url}`);
+    setUrl(`https://wesmedia.wesleyan.edu/${query.url}`);
 
     if(submitted) {
       createClip();
