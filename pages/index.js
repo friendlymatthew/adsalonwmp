@@ -14,17 +14,7 @@ import PostIcon from "@material-ui/icons/Backup";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
 import fetch from "isomorphic-unfetch";
 
-const scaffold = createTheme({
-  palette: {
-    primary: {
-      main: "#FFFFFF",
-    },
-    secondary: {
-      main: "#000000",
-    },
-  },
-});
-
+//loading in custom font
 const lato = createTheme({
   typography: {
     fontFamily: ["Lato", "sans-serif"].join(","),
@@ -42,20 +32,42 @@ const lato = createTheme({
   },
 });
 
+
+
 export default function Home() {
+  //query variable to get url params
   const { query } = useRouter();
 
+  //state for coder inputted start time in HH:MM:SS
   const [start, setStart] = useState("00:00:00");
+
+  //state for coder inputted stop time in HH:MM:SS
   const [stop, setStop] = useState("00:00:00");
+
+  //state for start time in seconds
   const [startSec, setStartSec] = useState(0);
+
+  //state for stop time in seconds
   const [stopSec, setStopSec] = useState(0);
+
+  //submitted flag
   const [submitted, setSubmitted] = useState(false);
   const [submitFlag, setSubmitFlag] = useState(false);
+
+  //error flag
   const [errorFlag, setErrorFlag] = useState(false);
+
+  //state for video URL
   const [url, setUrl] = useState("https://www.youtube.com/watch?v=xfzGZB4HhEE")
 
+
+  //an asynchronous function that posts a ClipSchema to mongoDB
   const createClip = async () => {
+
+    //checks if it's already been submitted
     if (submitFlag == false) {
+
+      //creating the time of submission
       const today = new Date();
       let date =
         today.getFullYear() +
@@ -67,6 +79,8 @@ export default function Home() {
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       let dateplusTime = date + " " + time;
 
+
+      //where we perform the post request
       try {
         const res = await fetch('/api/clips', {
           method: "POST",
@@ -88,10 +102,12 @@ export default function Home() {
           }),
         });
 
+        //if worked, set submitFlag to true
         setSubmitFlag(true);
         console.log("IT WORKED!")
         console.log(res);
       } catch (error) {
+        //error handling
         console.log(error);
         console.log(error);
         setErrorFlag(true);
@@ -100,9 +116,16 @@ export default function Home() {
   };
 
 
-
+  //creating reference for ReactPLAYER
   const reference = useRef();
 
+  //function that gets called when pressing the seek button
+  const handleSeek = () => {
+    reference.current.seekTo(Number(query.seek));
+  };
+
+
+  //function that gets called when pressing the start button
   const handleStart = () => {
     let seconds = reference.current.getCurrentTime();
     setStartSec(seconds);
@@ -110,6 +133,17 @@ export default function Home() {
     setStart(dateStart);
   };
 
+  //function that gets called when pressing the stop button
+  const handleStop = () => {
+    let seconds = reference.current.getCurrentTime();
+    setStopSec(seconds);
+    var dateStop = new Date(seconds * 1000).toISOString().substr(11, 8);
+
+    setStop(dateStop);
+  };
+
+
+  //function that gets called when pressing the submit button
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -120,6 +154,9 @@ export default function Home() {
     setSubmitted(true);
   };
 
+
+  //useEffect method to load in desired video clip
+  //useEffect also gets called when submitted is true
   useEffect(() => {
 
     setUrl(`https://wesmedia.wesleyan.edu/${query.url}`);
@@ -129,18 +166,7 @@ export default function Home() {
     }
   })
 
-  const handleStop = () => {
-    let seconds = reference.current.getCurrentTime();
-    setStopSec(seconds);
-    var dateStop = new Date(seconds * 1000).toISOString().substr(11, 8);
-
-    setStop(dateStop);
-  };
-
-  const handleSeek = () => {
-    reference.current.seekTo(Number(query.seek));
-  };
-
+  //html
   return (
     <ThemeProvider theme={lato}>
       <Grid container spacing={0}>
