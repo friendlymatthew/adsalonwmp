@@ -67,16 +67,6 @@ export default function Home() {
         today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       let dateplusTime = date + " " + time;
 
-      console.log(typeof query.market);
-      console.log(typeof query.station);
-      console.log(typeof query.title);
-      console.log(typeof query.snippet);
-      console.log(typeof query.coder);
-      console.log(typeof query.seek);
-      console.log(typeof startSec);
-      console.log(dateplusTime);
-      console.log(typeof cleanurl);
-
       try {
         const res = await fetch('/api/clips', {
           method: "POST",
@@ -151,8 +141,6 @@ export default function Home() {
     reference.current.seekTo(Number(query.seek));
   };
 
-  console.log(query.seek);
-
   return (
     <ThemeProvider theme={lato}>
       <Grid container spacing={0}>
@@ -221,12 +209,25 @@ export default function Home() {
                     color: "#FFFFFF",
                     textAlign: "center",
                     fontWeight: 600,
-                    marginBottom: "20px",
+                    marginBottom: "10px",
                   }}
                 >
                   <div>
                     From {query.title}, {query.station}, {query.market}
                   </div>
+                  
+                </Typography>
+                <Typography
+                  variant="h6"
+                  style={{
+                    color: "#FFFFFF",
+                    textAlign: "center",
+                    fontWeight: 500,
+                    marginBottom: "20px"
+                  }}
+                >
+                  video_id: {query.id}
+
                 </Typography>
               </div>
 
