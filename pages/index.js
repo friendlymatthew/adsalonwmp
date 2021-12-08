@@ -103,15 +103,15 @@ export default function Home() {
             coder: query.coder,
             seek: query.seek,
             start: startSec,
-            stop: stopSe,
+            stop: stopSec,
             dateSubmitted: dateplusTime,
           }),
         });
 
         //if worked, set submitFlag to true
         setSubmitFlag(true);
-        console.log("IT WORKED!")
-        console.log(res);
+        console.log(res.status);
+        console.log(res.statusText);
       } catch (error) {
         //error handling
         console.log(error);
