@@ -56,9 +56,15 @@ export default function Home() {
 
   //error flag
   const [errorFlag, setErrorFlag] = useState(false);
+  //error code grabbed from response
+  const [errorCode, setErrorCode] = useState("")
+
+
 
   //state for video URL
   const [url, setUrl] = useState("https://www.youtube.com/watch?v=xfzGZB4HhEE")
+
+
 
 
   //an asynchronous function that posts a ClipSchema to mongoDB
@@ -97,7 +103,7 @@ export default function Home() {
             coder: query.coder,
             seek: query.seek,
             start: startSec,
-            stop: stopSec,
+            stop: stopSe,
             dateSubmitted: dateplusTime,
           }),
         });
@@ -109,8 +115,9 @@ export default function Home() {
       } catch (error) {
         //error handling
         console.log(error);
-        console.log(error);
+        console.log("hi")
         setErrorFlag(true);
+
       }
     }
   };
@@ -171,7 +178,9 @@ export default function Home() {
     <ThemeProvider theme={lato}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={12}>
-          <AppBar coder={query.coder} />
+          <AppBar 
+            coder={query.coder}
+          />
         </Grid>
 
         <Grid item xs={1} md={2}></Grid>
@@ -204,13 +213,24 @@ export default function Home() {
                         ERROR! Bad response to server for{" "}
                         {`video_id: ${query.id}`}
                       </div>
+                      <div>
+                      </div>
                     </span>
                     <span>
                       <Button 
                         variant="outlined"
+                        borderColor="#FFFFFF"
                         href="https://forms.gle/YnhqokHVsY9SLB1H8"
                       >
-                        <Typography variant="h6" style={{ color: "#FFFFFF"}}>Report Issue</Typography>
+                        <Typography 
+                          variant="h6" 
+                          style={{ 
+                            color: "#FFFFFF",
+                            fontWeight: 600,
+                          }}
+                        >
+                          Report Issue
+                        </Typography>
                       </Button>
                     </span>
                   </div>
