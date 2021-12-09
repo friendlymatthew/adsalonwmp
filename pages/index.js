@@ -57,7 +57,7 @@ export default function Home() {
   //error flag
   const [errorFlag, setErrorFlag] = useState(false);
   //error code grabbed from response
-  const [errorCode, setErrorCode] = useState("")
+  const [status, setStatus] = useState("Not Submitted")
 
 
 
@@ -112,11 +112,13 @@ export default function Home() {
         setSubmitFlag(true);
         console.log(res.status);
         console.log(res.statusText);
+        setStatus(res.status);
       } catch (error) {
         //error handling
         console.log(error);
         console.log("hi")
         setErrorFlag(true);
+
 
       }
     }
@@ -337,6 +339,13 @@ export default function Home() {
             md={12}
             style={{ marginTop: "20px" }}
           >
+            <div>
+              <Typography
+                style={{textAlign: "right", color: "#FFFFFF", marginBottom: "8px"}}
+              >
+                Status: {status}
+              </Typography>
+            </div>
             <div
               style={{
                 backgroundColor: submitFlag ? "#3bd16f" : "#000000",

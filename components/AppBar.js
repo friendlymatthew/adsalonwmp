@@ -41,8 +41,6 @@ export default function ButtonAppBar(props) {
                   {props.coder}&apos;s workspace
                 </Typography>
                 </span>
-
-
               </div>
             </Grid>
             <Grid item xs={6} align="right">
