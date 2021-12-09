@@ -58,6 +58,7 @@ export default function Home() {
   const [errorFlag, setErrorFlag] = useState(false);
   //error code grabbed from response
   const [status, setStatus] = useState("Not Submitted")
+  const [statusText, setStatusText] = useState("")
 
 
 
@@ -103,7 +104,7 @@ export default function Home() {
             coder: query.coder,
             seek: query.seek,
             start: startSec,
-            stop: stopSec,
+            stop: {stopSec},
             dateSubmitted: dateplusTime,
           }),
         });
@@ -113,6 +114,7 @@ export default function Home() {
         console.log(res.status);
         console.log(res.statusText);
         setStatus(res.status);
+        setStatusText(res.statusText);
       } catch (error) {
         //error handling
         console.log(error);
@@ -339,13 +341,7 @@ export default function Home() {
             md={12}
             style={{ marginTop: "20px" }}
           >
-            <div>
-              <Typography
-                style={{textAlign: "right", color: "#FFFFFF", marginBottom: "8px"}}
-              >
-                Status: {status}
-              </Typography>
-            </div>
+           
             <div
               style={{
                 backgroundColor: submitFlag ? "#3bd16f" : "#000000",
