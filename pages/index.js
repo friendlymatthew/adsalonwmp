@@ -14,7 +14,8 @@ import ReactPlayer from "react-player";
 //css
 import "typeface-lato";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import { Grid, Paper, Typography, Button } from "@material-ui/core";
+import { Grid, Paper, Typography, Button, Snackbar } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 import PostIcon from "@material-ui/icons/Backup";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
 import VisibilityIcon from "@material-ui/icons/Visibility";
@@ -39,6 +40,10 @@ const lato = createTheme({
   },
 });
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 export default function Home() {
   const axios = require("axios");
 
@@ -60,11 +65,10 @@ export default function Home() {
   const [repeat, setRepeat] = useState(false);
 
   //error flag
-  const [resCode, setResCode] = useState(0);
+  const [resCode, setResCode] = useState("");
   const [resText, setResText] = useState("");
 
-
-  const [errorFlag, setErrorFlag] = useState("");
+  const [pressed, setPressed] = useState(false);
 
   const reference = useRef();
 
@@ -107,6 +111,7 @@ export default function Home() {
   //function that gets called when pressing the submit button
   const handleSubmit = (e) => {
     e.preventDefault();
+    setPressed(true);
 
     console.log(submitted);
 
@@ -116,7 +121,6 @@ export default function Home() {
     }
 
     createClip();
-
   };
 
   //an asynchronous function that posts a ClipSchema to mongoDB
@@ -136,98 +140,47 @@ export default function Home() {
 
     let dateplusTime = date + " " + time;
 
-    axios.post("/api/clips", {
-      videoSrc: `https://wesmedia.wesleyan.edu/${query.url}`,
-      market: query.market,
-      station: query.station,
-      title: query.title,
-      snippet: query.snippet,
-      coder: query.coder,
-      seek: query.seek,
-      start: startSec,
-      stop: stopSec,
-      dateSubmitted: dateplusTime,
-    }).then(function (response) {
-      console.log(response);
+    axios
+      .post("/api/clips", {
+        videoSrc: `https://wesmedia.wesleyan.edu/${query.url}`,
+        market: query.market,
+        station: query.station,
+        title: query.title,
+        snippet: query.snippet,
+        coder: query.coder,
+        seek: query.seek,
+        start: startSec,
+        stop: stopSec,
+        dateSubmitted: dateplusTime,
+      })
+      .then(function (response) {
+        console.log(response);
 
-      if(response.status === 201) {
-        console.log("Created!!!");
-      }
-      setResCode(response.status);
-      setResText(response.statusText);
+        setResCode(response.status);
+        setResText(response.statusText);
 
-    });
+        if (response.status === 201) {
+          console.log("Created!!!");
+          setSubmitted(true);
+        }
+      });
   };
 
   //html
   return (
     <ThemeProvider theme={lato}>
       <Grid container spacing={0}>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={12} style={{ marginBottom: "40px" }}>
           <AppBar coder={query.coder} />
         </Grid>
 
         <Grid item xs={1} md={2}></Grid>
         <Grid item xs={10} md={8} container spacing={0}>
-          <Grid item align="center" xs={12}>
-            {errorFlag ? (
-              <div
-                style={{
-                  backgroundColor: "#aa3232",
-                  padding: "10px",
-                  marginTop: "35px",
-                  marginBottom: "35px",
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  style={{
-                    color: "#FFFFFF",
-                    fontWeight: 600,
-                  }}
-                >
-                  <div
-                    style={{
-                      justifyContent: "space-between",
-                      display: "flex",
-                    }}
-                  >
-                    <span>
-                      <div>
-                        ERROR! Bad response to server for{" "}
-                        {`video_id: ${query.id}`}
-                      </div>
-                      <div></div>
-                    </span>
-                    <span>
-                      <Button
-                        variant="outlined"
-                        href="https://forms.gle/YnhqokHVsY9SLB1H8"
-                      >
-                        <Typography
-                          variant="h6"
-                          style={{
-                            color: "#FFFFFF",
-                            fontWeight: 600,
-                          }}
-                        >
-                          Report Issue
-                        </Typography>
-                      </Button>
-                    </span>
-                  </div>
-                </Typography>
-              </div>
-            ) : (
-              ""
-            )}
-          </Grid>
-
           <Grid
             item
             xs={12}
             md={12}
-            style={{ marginTop: "0px" }}
+            style={{ marginTop: "0px", marginBottom: "30px"}}
             container
             spacing={0}
           >
@@ -325,10 +278,9 @@ export default function Home() {
           >
             <div
               style={{
-                height: "300px",
                 borderRadius: "10px",
                 border: "1px solid white",
-                padding: "20px",
+                padding: "15px",
                 maxWidth: "600px",
               }}
             >
@@ -337,11 +289,11 @@ export default function Home() {
                 style={{
                   fontWeight: 600,
                   color: "#FFFFFF",
-                  marginBottom: "50px",
+                  marginBottom: "10px",
                   textAlign: "left",
                 }}
               >
-                Status
+                Your Submission
               </Typography>
 
               <div style={{ justifyContent: "space-between", display: "flex" }}>
@@ -412,28 +364,53 @@ export default function Home() {
                   </div>
                 </span>
               </div>
-            </div>
 
-            <div
-              style={{
-                backgroundColor: submitted ? "#3bd16f" : "#000000",
-                opacity: 1,
-                padding: "10px",
-                minWidth: "900px",
-              }}
-            >
-              <div
-                style={{
-                  padding: "10px",
-                  borderRadius: "10px",
-                  maxWidth: "500px",
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  style={{ color: "#000000", fontWeight: 600 }}
-                ></Typography>
-              </div>
+              {pressed ? (
+                <div style={{ marginTop: "60px" }}>
+                  <Typography
+                    variant="h6"
+                    style={{
+                      textAlign: "left",
+                      color: "#FFFFFF",
+                      fontWeight: 600,
+                      marginBottom: "10px",
+                    }}
+                  >
+                    Server Response
+                  </Typography>
+
+                  <div>
+                    <Typography style={{ textAlign: "left", color: "#FFFFFF" }}>
+                      <div>Status Code: {resCode}</div>
+                    </Typography>
+                  </div>
+
+                  <div
+                    style={{
+                      justifyContent: "space-between",
+                      display: "flex",
+                    }}
+                  >
+                    <span>
+                      <Typography
+                        style={{ textAlign: "left", color: "#FFFFFF" }}
+                      >
+                        <div>Server Response: {resText}</div>
+                      </Typography>
+                    </span>
+
+                    <span>
+                      <Typography style={{ color: "#FFFFFF" }}>
+                        <a href="https://forms.gle/RVMkHNG8uhqkTvZH6">
+                          Send Help
+                        </a>
+                      </Typography>
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </Grid>
         </Grid>
