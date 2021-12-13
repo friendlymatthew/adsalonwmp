@@ -92,7 +92,7 @@ We are able to store each value with our `query.KEY` variable.
 
 # Sending Data
 
-Each clip data stores the following variables.
+When a coder submits their video assignment, the contents of the submission is stored as a schema with the following variables: 
 
 ### Clip Schema
 
@@ -107,6 +107,41 @@ Each clip data stores the following variables.
 | `dateSubmitted` | String | local variable   | user generated |
 | `start`         | Number | `startSec` state | user generated |
 | `stop`          | Number | `stopSec` state  | user generated |
+
+### Axios
+```javascript
+    axios
+      .post("/api/clips", {
+        videoSrc: `https://wesmedia.wesleyan.edu/${query.url}`,
+        market: query.market,
+        station: query.station,
+        title: query.title,
+        snippet: query.snippet,
+        coder: query.coder,
+        seek: query.seek,
+        start: startSec,
+        stop: stopSec,
+        dateSubmitted: dateplusTime,
+      })
+      .then(function (response) {
+        console.log(response);
+
+        setResCode(response.status);
+        setResText(response.statusText);
+
+        if (response.status === 201) {
+          console.log("Created!!!");
+          setSubmitted(true);
+        }
+
+        setError(true);
+    });
+```
+
+We call our `axios` variable to post a ClipSchema to our server. We update the `submitted` state if `response.status` is 201. We update the `error` state otherwise.
+
+
+
 
 # HTML Components
 
