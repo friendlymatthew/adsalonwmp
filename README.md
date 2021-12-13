@@ -16,3 +16,11 @@ For an extensive user guide and documentation, please check out the following do
 Variable | Description
 --- | --- 
 `axios` | call axios.post() to send data to server
+`query` | call axios.post() to send data to server
+
+
+
+States | Initial Value | Description
+--- | --- | --- 
+`start`, `setStart` | 0 | start state time to capture start time
+
