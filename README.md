@@ -9,7 +9,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 For an extensive user guide, please check out the following documents:
 
 - [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - watch a sample run through
--[Run Through]()
+
+- [Run Through]()
 
 # Documentation
 
