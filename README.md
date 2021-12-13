@@ -9,6 +9,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 For an extensive user guide, please check out the following documents:
 
 - [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - watch a sample run through
+-[Run Through]()
 
 # Documentation
 
@@ -16,13 +17,13 @@ For an extensive user guide, please check out the following documents:
 
 ### Packages
 
-| Package                                                        |                       |
-| -------------------------------------------------------------- | --------------------- |
-| [`material-ui`](https://mui.com)                               | -/core -/icons - /lab |
-| [`axios`](https://axios-http.com)                              |                       |
-| [`mongoose`](https://www.npmjs.com/package/mongoose)           |                       |
-| [`react-player`](https://www.npmjs.com/package/react-player)   |                       |
-| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) |                       |
+| Package                                                        |    
+| -------------------------------------------------------------- | 
+| [`material-ui`](https://mui.com)                               | 
+| [`axios`](https://axios-http.com)                              |    
+| [`mongoose`](https://www.npmjs.com/package/mongoose)           |   
+| [`react-player`](https://www.npmjs.com/package/react-player)   |    
+| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) |   
 
 ### Variables
 
