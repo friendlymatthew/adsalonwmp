@@ -12,7 +12,7 @@ For an extensive user guide, please check out the following document and videos:
 
 - [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - watch a sample run through
 
-- [Run Through]() - watch a demo of how to 
+- [Run Through]() - watch a demo of how to
 
 - [Troubleshooting]()
 
@@ -22,13 +22,13 @@ For an extensive user guide, please check out the following document and videos:
 
 ### Packages
 
-| Package                                                        |    
-| -------------------------------------------------------------- | 
-| [`material-ui`](https://mui.com)                               | 
-| [`axios`](https://axios-http.com)                              |    
-| [`mongoose`](https://www.npmjs.com/package/mongoose)           |   
-| [`react-player`](https://www.npmjs.com/package/react-player)   |    
-| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) |   
+| Package                                                        | NPM                                                                                      |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [`material-ui`](https://mui.com)                               | ![NPM](https://img.shields.io/npm/l/@material-ui/core?label=material-ui%2Fcore&logo=NPM) |
+| [`axios`](https://axios-http.com)                              | ![NPM](https://img.shields.io/npm/l/axios?label=axios&logo=NPM)                          |
+| [`mongoose`](https://www.npmjs.com/package/mongoose)           | ![NPM](https://img.shields.io/npm/l/mongoose?label=mongoose&logo=NPM)                    |
+| [`react-player`](https://www.npmjs.com/package/react-player)   | ![NPM](https://img.shields.io/npm/l/react-player?label=react-player&logo=NPM)            |
+| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) | ![NPM](https://img.shields.io/npm/l/typeface-lato?label=typeface-lato&logo=NPM)          |
 
 ### Variables
 
@@ -98,7 +98,7 @@ We are able to store each value with our `query.KEY` variable.
 
 # Sending Data
 
-When a coder submits their video assignment, the contents of the submission is stored as a schema with the following variables: 
+When a coder submits their video assignment, the contents of the submission is stored as a schema with the following variables:
 
 ### Clip Schema
 
@@ -115,39 +115,37 @@ When a coder submits their video assignment, the contents of the submission is s
 | `stop`          | Number | `stopSec` state  | user generated |
 
 ### Axios
+
 ```javascript
-    axios
-      .post("/api/clips", {
-        videoSrc: `https://wesmedia.wesleyan.edu/${query.url}`,
-        market: query.market,
-        station: query.station,
-        title: query.title,
-        snippet: query.snippet,
-        coder: query.coder,
-        seek: query.seek,
-        start: startSec,
-        stop: stopSec,
-        dateSubmitted: dateplusTime,
-      })
-      .then(function (response) {
-        console.log(response);
+axios
+  .post("/api/clips", {
+    videoSrc: `https://wesmedia.wesleyan.edu/${query.url}`,
+    market: query.market,
+    station: query.station,
+    title: query.title,
+    snippet: query.snippet,
+    coder: query.coder,
+    seek: query.seek,
+    start: startSec,
+    stop: stopSec,
+    dateSubmitted: dateplusTime,
+  })
+  .then(function (response) {
+    console.log(response);
 
-        setResCode(response.status);
-        setResText(response.statusText);
+    setResCode(response.status);
+    setResText(response.statusText);
 
-        if (response.status === 201) {
-          console.log("Created!!!");
-          setSubmitted(true);
-        }
+    if (response.status === 201) {
+      console.log("Created!!!");
+      setSubmitted(true);
+    }
 
-        setError(true);
-    });
+    setError(true);
+  });
 ```
 
 We call our `axios` variable to post a ClipSchema to our server. We update the `submitted` state if `response.status` is 201. We update the `error` state otherwise.
-
-
-
 
 # HTML Components
 
