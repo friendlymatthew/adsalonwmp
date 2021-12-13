@@ -155,242 +155,242 @@ playing controls />
 ### Video Information
 
 ```html
-<div>
-    <Typography
-        variant="h6"
-        style={{ color: "#FFFFFF", fontWeight: 600 }}
-    >
-        From {query.title}, {query.station}, {query.market}
-    </Typography>
-    <Typography style={{ color: "#FFFFFF" }}>
-        video_id: {query.id}
-    </Typography>
-    <Paper
-        style={{ marginTop: "15px", backgroundColor: "#252526", padding: "15px"}}
-        elevation={3}
-    >
+    <div>
         <Typography
-        variant="h6"
-        style={{ color: "#FFFFFF" }}
+            variant="h6"
+            style={{ color: "#FFFFFF", fontWeight: 600 }}
         >
-        {query.snippet}
+            From {query.title}, {query.station}, {query.market}
         </Typography>
-    </Paper>
-</div>
+        <Typography style={{ color: "#FFFFFF" }}>
+            video_id: {query.id}
+        </Typography>
+        <Paper
+            style={{ marginTop: "15px", backgroundColor: "#252526", padding: "15px"}}
+            elevation={3}
+        >
+            <Typography
+            variant="h6"
+            style={{ color: "#FFFFFF" }}
+            >
+            {query.snippet}
+            </Typography>
+        </Paper>
+    </div>
 ```
 
 ### Coder Toolbar
 
 ```html
-<div
-    style={{
-        padding: "10px",
-        justifyContent: "space-between",
-        maxWidth: "500px",
-        display: "flex",
-        marginTop: "10px",
-    }}
-    >
-    <span>
-        <Button
-        style={{ backgroundColor: "#04dbfb" }}
-        onClick={handleSeek}
+    <div
+        style={{
+            padding: "10px",
+            justifyContent: "space-between",
+            maxWidth: "500px",
+            display: "flex",
+            marginTop: "10px",
+        }}
         >
-        <VisibilityIcon style={{ marginRight: "8px" }} />
-        <Typography
-            variant="h5"
-            style={{ fontWeight: 600, color: "#000000" }}
-        >
-            Seek
-        </Typography>
-        </Button>
-    </span>
+        <span>
+            <Button
+            style={{ backgroundColor: "#04dbfb" }}
+            onClick={handleSeek}
+            >
+            <VisibilityIcon style={{ marginRight: "8px" }} />
+            <Typography
+                variant="h5"
+                style={{ fontWeight: 600, color: "#000000" }}
+            >
+                Seek
+            </Typography>
+            </Button>
+        </span>
 
-    <span>
-        <Button
-        style={{ backgroundColor: "#ee76da" }}
-        onClick={handleStart}
-        >
-        <PlayArrowIcon style={{ marginRight: "8px" }} />
-        <Typography
-            variant="h5"
-            style={{ fontWeight: 600, color: "#000000" }}
-        >
-            Mark Start
-        </Typography>
-        </Button>
-    </span>
+        <span>
+            <Button
+            style={{ backgroundColor: "#ee76da" }}
+            onClick={handleStart}
+            >
+            <PlayArrowIcon style={{ marginRight: "8px" }} />
+            <Typography
+                variant="h5"
+                style={{ fontWeight: 600, color: "#000000" }}
+            >
+                Mark Start
+            </Typography>
+            </Button>
+        </span>
 
-    <span>
-        <Button
-        style={{ backgroundColor: "#b88dfd" }}
-        onClick={handleStop}
-        >
-        <StopIcon style={{ marginRight: "8px" }} />
-        <Typography
-            variant="h5"
-            style={{ fontWeight: 600, color: "#000000" }}
-        >
-            Mark Stop
-        </Typography>
-        </Button>
-    </span>
-</div>
+        <span>
+            <Button
+            style={{ backgroundColor: "#b88dfd" }}
+            onClick={handleStop}
+            >
+            <StopIcon style={{ marginRight: "8px" }} />
+            <Typography
+                variant="h5"
+                style={{ fontWeight: 600, color: "#000000" }}
+            >
+                Mark Stop
+            </Typography>
+            </Button>
+        </span>
+    </div>
 ```
 
 ### Your Submission
 
 ```html
-<Typography
-variant="h5"
-style={{
-    fontWeight: 600,
-    color: "#FFFFFF",
-    marginBottom: "10px",
-    textAlign: "left",
-}}
->
-Your Submission
-</Typography>
-
-<div style={{ justifyContent: "space-between", display: "flex" }}>
-    <span>
-        <Button
-        style={{
-            backgroundColor: "#ee76da",
-            padding: "5px",
-            marginBottom: "8px",
-            width: "200px",
-        }}
-        onClick={handleSeekStart}
-        >
-        <Typography variant="h5" style={{ fontWeight: 600 }}>
-            Start: {start}
-        </Typography>
-        </Button>
-    </span>
-    <span></span>
-    </div>
-
-    <div
+    <Typography
+    variant="h5"
     style={{
-        justifyContent: "space-between",
-        display: "flex",
-        marginBottom: "8px",
+        fontWeight: 600,
+        color: "#FFFFFF",
+        marginBottom: "10px",
+        textAlign: "left",
     }}
     >
-    <span>
-        <Button
-        style={{
-            width: "200px",
-            backgroundColor: "#b88dfd",
-            padding: "5px",
-        }}
-        onClick={handleSeekStop}
-        >
-        <Typography variant="h5" style={{ fontWeight: 600 }}>
-            Stop: {stop}
-        </Typography>
-        </Button>
-    </span>
-    <span>
-        <div>
-        {" "}
-        <Button
-            style={{ backgroundColor: "#fce2a1" }}
-            onClick={handleSubmit}
-        >
-            {submitted ? (
-            <DoneIcon
-                fontSize="large"
-                style={{ color: "#000000", marginRight: "10px" }}
-            />
-            ) : (
-            <PostIcon
-                fontSize="large"
-                style={{ color: "#000000", marginRight: "10px" }}
-            />
-            )}
-            <Typography
-            variant="h5"
-            style={{ color: "#000000", fontWeight: 600 }}
-            >
-            {submitted ? "Posted" : "Post"}
-            </Typography>
-        </Button>
-        </div>
-    </span>
-</div>
-```
+    Your Submission
+    </Typography>
 
-### Server Response
-
-```html
-{pressed ? (
-    <div style={{ marginTop: "60px" }}>
-        <Typography
-        variant="h5"
-        style={{
-            textAlign: "left",
-            color: "#FFFFFF",
-            fontWeight: 600,
-            marginBottom: "10px",
-        }}
-        >
-        Server Response
-        </Typography>
-
-        <div>
-        <Typography
-            variant="h6"
+    <div style={{ justifyContent: "space-between", display: "flex" }}>
+        <span>
+            <Button
             style={{
-            textAlign: "left",
-            color: submitted
-                ? "#00FF00"
-                : error
-                ? "#EE4B2B"
-                : "#FFFFFF",
+                backgroundColor: "#ee76da",
+                padding: "5px",
+                marginBottom: "8px",
+                width: "200px",
             }}
-        >
-            <div>Status Code: {resCode}</div>
-        </Typography>
+            onClick={handleSeekStart}
+            >
+            <Typography variant="h5" style={{ fontWeight: 600 }}>
+                Start: {start}
+            </Typography>
+            </Button>
+        </span>
+        <span></span>
         </div>
 
         <div
         style={{
             justifyContent: "space-between",
             display: "flex",
+            marginBottom: "8px",
         }}
         >
         <span>
+            <Button
+            style={{
+                width: "200px",
+                backgroundColor: "#b88dfd",
+                padding: "5px",
+            }}
+            onClick={handleSeekStop}
+            >
+            <Typography variant="h5" style={{ fontWeight: 600 }}>
+                Stop: {stop}
+            </Typography>
+            </Button>
+        </span>
+        <span>
+            <div>
+            {" "}
+            <Button
+                style={{ backgroundColor: "#fce2a1" }}
+                onClick={handleSubmit}
+            >
+                {submitted ? (
+                <DoneIcon
+                    fontSize="large"
+                    style={{ color: "#000000", marginRight: "10px" }}
+                />
+                ) : (
+                <PostIcon
+                    fontSize="large"
+                    style={{ color: "#000000", marginRight: "10px" }}
+                />
+                )}
+                <Typography
+                variant="h5"
+                style={{ color: "#000000", fontWeight: 600 }}
+                >
+                {submitted ? "Posted" : "Post"}
+                </Typography>
+            </Button>
+            </div>
+        </span>
+    </div>
+```
+
+### Server Response
+
+```html
+    {pressed ? (
+        <div style={{ marginTop: "60px" }}>
             <Typography
-            variant="h6"
+            variant="h5"
             style={{
                 textAlign: "left",
-                color: submitted
-                ? "#00FF00"
-                : error
-                ? "#EE4B2B"
-                : "#FFFFFF",
+                color: "#FFFFFF",
+                fontWeight: 600,
+                marginBottom: "10px",
             }}
             >
-            <div>Message: {resText}</div>
+            Server Response
             </Typography>
-        </span>
 
-        <span>
-            <Typography variant="h6" style={{ color: "#FFFFFF" }}>
-            <a
-                href="https://forms.gle/RVMkHNG8uhqkTvZH6"
-                target="_blank"
+            <div>
+            <Typography
+                variant="h6"
+                style={{
+                textAlign: "left",
+                color: submitted
+                    ? "#00FF00"
+                    : error
+                    ? "#EE4B2B"
+                    : "#FFFFFF",
+                }}
             >
-                Report Issue
-            </a>
+                <div>Status Code: {resCode}</div>
             </Typography>
-        </span>
+            </div>
+
+            <div
+            style={{
+                justifyContent: "space-between",
+                display: "flex",
+            }}
+            >
+            <span>
+                <Typography
+                variant="h6"
+                style={{
+                    textAlign: "left",
+                    color: submitted
+                    ? "#00FF00"
+                    : error
+                    ? "#EE4B2B"
+                    : "#FFFFFF",
+                }}
+                >
+                <div>Message: {resText}</div>
+                </Typography>
+            </span>
+
+            <span>
+                <Typography variant="h6" style={{ color: "#FFFFFF" }}>
+                <a
+                    href="https://forms.gle/RVMkHNG8uhqkTvZH6"
+                    target="_blank"
+                >
+                    Report Issue
+                </a>
+                </Typography>
+            </span>
+            </div>
         </div>
-    </div>
-    ) : (
-    ""
-)}
+        ) : (
+        ""
+    )}
 ```

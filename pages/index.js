@@ -5,7 +5,6 @@ import styles from "../styles/Home.module.css";
 //data
 import React, { useState, useEffect, Component, useRef } from "react";
 import { useRouter } from "next/router";
-import fetch from "isomorphic-unfetch";
 
 //components
 import AppBar from "../components/AppBar";
@@ -14,8 +13,7 @@ import ReactPlayer from "react-player";
 //css
 import "typeface-lato";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import { Grid, Paper, Typography, Button, Snackbar } from "@material-ui/core";
-import MuiAlert from "@material-ui/lab/Alert";
+import { Grid, Paper, Typography, Button } from "@material-ui/core";
 import PostIcon from "@material-ui/icons/Backup";
 import DoneIcon from "@material-ui/icons/Done";
 import VisibilityIcon from "@material-ui/icons/Visibility";
