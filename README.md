@@ -1,6 +1,6 @@
 ## About
 
-`adsalonwmp` is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
+[`adsalonwmp`](https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357) is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
 
 
 
@@ -19,14 +19,13 @@ For an extensive user guide, please check out the following documents:
 - [For Devs](https://docs.google.com/document/d/1z_uooKfthy-TI4LMEwd2Sj5CkCwCkRZJSUHF08o2_3E/edit?usp=sharing) - learn more about AdSalon features
 
 ### Packages
-[material-ui]
 
 | Package     |                                                                       |
 | ----------- | --------------------------------------------------------------------------------- |
 | [`material-ui`](https://mui.com) | -/core -/icons - /lab                   |
 | [`axios`](https://axios-http.com)     |                                            |
 | [`mongoose`](https://www.npmjs.com/package/mongoose) | |
-| [react-player](https://www.npmjs.com/package/react-player) | |
+| [`react-player`](https://www.npmjs.com/package/react-player) | |
 | [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) | | 
 
 
@@ -63,6 +62,7 @@ For an extensive user guide, please check out the following documents:
 | `handleSubmit(e)` | event handler function that verifies then calls `createClip()`       |
 
 ## Schema
+Each clip data stores the following variables. 
 
 ### Clip Schema
 | Schema Elements | Type              | Variable | Source |
