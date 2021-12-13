@@ -56,7 +56,7 @@ For an extensive user guide, please check out the following documents:
 | `handleStop()`    | event handler function that updates `stop` and `stop` variables      |
 | `handleSubmit(e)` | event handler function that verifies then calls `createClip()`       |
 
-## Queries
+## Getting Data
 
 We pass in specific values through web parameters within the url. A sample url would be: https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357
 
@@ -64,14 +64,17 @@ Observe each query is organized in a key=value pairing like such:
 | Key | Pair |
 | ---- | ---- |
 | market | Portland |
-| station | WPFO | 
-| title | DailyMailTV | 
-| snippet | be+taking+to+make+the+risks+are+worth+their+rewards... | 
-| coder | eraab | 
-| url | covid/WXPFO_20200619_1100PM.mp4 | 
+| station | WPFO |
+| title | DailyMailTV |
+| snippet | be+taking+to+make+the+risks+are+worth+their+rewards... |
+| coder | eraab |
+| url | covid/WXPFO_20200619_1100PM.mp4 |
 | id | 4 |
 | seek | 1357 |
 
+
+We are able to store each key=value with our `query` variable. 
+### Queries
 
 | Query Key | Variable Name   | Description                                                                                        |
 | --------- | --------------- | -------------------------------------------------------------------------------------------------- |
@@ -84,7 +87,7 @@ Observe each query is organized in a key=value pairing like such:
 | `id`      | {query.id}      | unique video id                                                                                    |
 | `seek`    | {query.seek}    | the suggested start time in seconds of where the snippet is said within the video clip             |
 
-## Schema
+## Sending Data
 
 Each clip data stores the following variables.
 
