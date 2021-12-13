@@ -65,17 +65,17 @@ For an extensive user guide, please check out the following documents:
 ## Schema
 
 ### Clip Schema
-| Schema Elements | Type              | Source | 
-| ----------------------------- | ------------- | -------------------------------------------------------------- |
-| `market` | String | query.market | 
-| `station` | String | query.station | 
-| `title` | String | query.title | 
-| `snippet` | String | query.snippet | 
-| `coder` | String | query.coder | 
-| `seek` | String | query.seek | 
-| `dateSubmitted | String | local variable | 
-| `start` | Number | `startSec` state | 
-| `stop` | Number | `stopSec` state |
+| Schema Elements | Type              | Variable | Source |
+| ----------------------------- | ------------- | -------------------------------------------------------------- |---------------------------------------------------------- |
+| `market` | String | `query.market` | web url param |
+| `station` | String | `query.station` | web url param | 
+| `title` | String | `query.title` | web url param | 
+| `snippet` | String | `query.snippet` |  web url param | 
+| `coder` | String | `query.coder` | web url param |
+| `seek` | String | `query.seek` |  web url param |
+| `dateSubmitted` | String | local variable | user generated |
+| `start` | Number | `startSec` state | user generated |
+| `stop` | Number | `stopSec` state | user generated |
 
 
 
