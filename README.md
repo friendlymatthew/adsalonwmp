@@ -2,17 +2,13 @@
 
 [`adsalonwmp`](https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357) is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
 
-
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Usage
 
 For an extensive user guide, please check out the following documents:
 
-- [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - learn how to navigate the tool
-
-
+- [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - watch a sample run through
 
 ## Documentation
 
@@ -20,20 +16,19 @@ For an extensive user guide, please check out the following documents:
 
 ### Packages
 
-| Package     |                                                                       |
-| ----------- | --------------------------------------------------------------------------------- |
-| [`material-ui`](https://mui.com) | -/core -/icons - /lab                   |
-| [`axios`](https://axios-http.com)     |                                            |
-| [`mongoose`](https://www.npmjs.com/package/mongoose) | |
-| [`react-player`](https://www.npmjs.com/package/react-player) | |
-| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) | | 
-
+| Package                                                        |                       |
+| -------------------------------------------------------------- | --------------------- |
+| [`material-ui`](https://mui.com)                               | -/core -/icons - /lab |
+| [`axios`](https://axios-http.com)                              |                       |
+| [`mongoose`](https://www.npmjs.com/package/mongoose)           |                       |
+| [`react-player`](https://www.npmjs.com/package/react-player)   |                       |
+| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) |                       |
 
 ### Variables
 
 | Variable    | Description                                                                       |
 | ----------- | --------------------------------------------------------------------------------- |
-| `axios`     | call instance method `axios.post()` to send data to server                        |
+| `axios`     | call `axios.post()` to send data to server                                        |
 | `query`     | access query params passed through url                                            |
 | `reference` | call instance methods on [react-player](https://github.com/cookpete/react-player) |
 
@@ -61,24 +56,51 @@ For an extensive user guide, please check out the following documents:
 | `handleStop()`    | event handler function that updates `stop` and `stop` variables      |
 | `handleSubmit(e)` | event handler function that verifies then calls `createClip()`       |
 
+## Queries
+
+We pass in specific values through web parameters within the url. A sample url would be: https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357
+
+Observe each query is organized in a key=value pairing like such:
+| Key | Pair |
+| ---- | ---- |
+| market | Portland |
+| station | WPFO | 
+| title | DailyMailTV | 
+| snippet | be+taking+to+make+the+risks+are+worth+their+rewards... | 
+| coder | eraab | 
+| url | covid/WXPFO_20200619_1100PM.mp4 | 
+| id | 4 |
+| seek | 1357 |
+
+
+| Query Key | Variable Name   | Description                                                                                        |
+| --------- | --------------- | -------------------------------------------------------------------------------------------------- |
+| `market`  | {query.market}  | news market region of specific clip                                                                |
+| `station` | {query.station} | news station name airing specific clip                                                             |
+| `title`   | {query.title}   | video clip title                                                                                   |
+| `snippet` | {query.snippet} | the specific phrase users should be looking to match with video clip and mark start and stop times |
+| `coder`   | {query.coder}   | the username of the coder for that specific video assignment                                       |
+| `url`     | {query.url}     | video clip url                                                                                     |
+| `id`      | {query.id}      | unique video id                                                                                    |
+| `seek`    | {query.seek}    | the suggested start time in seconds of where the snippet is said within the video clip             |
+
 ## Schema
-Each clip data stores the following variables. 
+
+Each clip data stores the following variables.
 
 ### Clip Schema
-| Schema Elements | Type              | Variable | Source |
-| ----------------------------- | ------------- | -------------------------------------------------------------- |---------------------------------------------------------- |
-| `market` | String | `query.market` | web url param |
-| `station` | String | `query.station` | web url param | 
-| `title` | String | `query.title` | web url param | 
-| `snippet` | String | `query.snippet` |  web url param | 
-| `coder` | String | `query.coder` | web url param |
-| `seek` | String | `query.seek` |  web url param |
-| `dateSubmitted` | String | local variable | user generated |
-| `start` | Number | `startSec` state | user generated |
-| `stop` | Number | `stopSec` state | user generated |
 
-
-
+| Schema Elements | Type   | Variable         | Source         |
+| --------------- | ------ | ---------------- | -------------- |
+| `market`        | String | `query.market`   | web url param  |
+| `station`       | String | `query.station`  | web url param  |
+| `title`         | String | `query.title`    | web url param  |
+| `snippet`       | String | `query.snippet`  | web url param  |
+| `coder`         | String | `query.coder`    | web url param  |
+| `seek`          | String | `query.seek`     | web url param  |
+| `dateSubmitted` | String | local variable   | user generated |
+| `start`         | Number | `startSec` state | user generated |
+| `stop`          | Number | `stopSec` state  | user generated |
 
 ## HTML Components
 
