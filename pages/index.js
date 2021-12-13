@@ -47,6 +47,9 @@ export default function Home() {
   //query variable to get url params
   const { query } = useRouter();
 
+  const reference = useRef();
+
+
   //state for coder inputted start time in HH:MM:SS
   const [start, setStart] = useState("00:00:00");
   //state for start time in seconds
@@ -67,7 +70,6 @@ export default function Home() {
 
   const [pressed, setPressed] = useState(false);
 
-  const reference = useRef();
 
   useEffect(() => {
     if (submitted) {
