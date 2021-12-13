@@ -23,11 +23,11 @@ For an extensive user guide, please check out the following documents:
 
 | Package     |                                                                       |
 | ----------- | --------------------------------------------------------------------------------- |
-| [`material-ui`](https://mui.com) | - /core - /icons - /lab                   |
-| `axios`     |                                            |
-| `mongoose` | |
-| `react-player` | |
-| `typeface-lato` | | 
+| [`material-ui`](https://mui.com) | -/core -/icons - /lab                   |
+| [`axios`](https://axios-http.com)     |                                            |
+| [`mongoose`](https://www.npmjs.com/package/mongoose) | |
+| [react-player](https://www.npmjs.com/package/react-player) | |
+| [`typeface-lato`](https://www.npmjs.com/package/typeface-lato) | | 
 
 
 ### Variables
@@ -61,6 +61,24 @@ For an extensive user guide, please check out the following documents:
 | `handleStart()`   | event handler function that updates `start` and `startSec` variables |
 | `handleStop()`    | event handler function that updates `stop` and `stop` variables      |
 | `handleSubmit(e)` | event handler function that verifies then calls `createClip()`       |
+
+## Schema
+
+### Clip Schema
+| Schema Elements | Type              | Source | 
+| _______________ | _________________ | ________________  | 
+| `market` | String | query.market | 
+| `station` | String | query.station | 
+| `title` | String | query.title | 
+| `snippet` | String | query.snippet | 
+| `coder` | String | query.coder | 
+| `seek` | String | query.seek | 
+| `dateSubmitted | String | local variable | 
+| `start` | Number | `startSec` state | 
+| `stop` | Number | `stopSec` state |
+
+
+
 
 ## HTML Components
 
