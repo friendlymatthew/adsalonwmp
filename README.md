@@ -2,7 +2,7 @@
 
 [`adsalonwmp`](https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357) is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
 
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![release](https://img.shields.io/badge/release-v.0.0.2-blue)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
