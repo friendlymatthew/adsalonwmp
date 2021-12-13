@@ -17,7 +17,7 @@ import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { Grid, Paper, Typography, Button, Snackbar } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import PostIcon from "@material-ui/icons/Backup";
-import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
+import DoneIcon from "@material-ui/icons/Done";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import StopIcon from "@material-ui/icons/Stop";
@@ -40,9 +40,6 @@ const lato = createTheme({
   },
 });
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 export default function Home() {
   const axios = require("axios");
@@ -62,7 +59,7 @@ export default function Home() {
 
   //submitted flag
   const [submitted, setSubmitted] = useState(false);
-  const [repeat, setRepeat] = useState(false);
+  const [error, setError] = useState(false);
 
   //error flag
   const [resCode, setResCode] = useState("");
@@ -116,7 +113,6 @@ export default function Home() {
     console.log(submitted);
 
     if (submitted) {
-      setRepeat(true);
       return;
     }
 
@@ -163,6 +159,8 @@ export default function Home() {
           console.log("Created!!!");
           setSubmitted(true);
         }
+
+        setError(true);
       });
   };
 
@@ -180,11 +178,11 @@ export default function Home() {
             item
             xs={12}
             md={12}
-            style={{ marginTop: "0px", marginBottom: "30px"}}
+            style={{ marginTop: "0px", marginBottom: "30px" }}
             container
             spacing={0}
           >
-            <Grid item xs={7}>
+            <Grid item xs={12} md={7}>
               <ReactPlayer
                 ref={reference}
                 url={`https://wesmedia.wesleyan.edu/${query.url}`}
@@ -193,7 +191,7 @@ export default function Home() {
               />
             </Grid>
 
-            <Grid item xs={5}>
+            <Grid item xs={12} md={5}>
               <div>
                 <Typography
                   variant="h6"
@@ -204,12 +202,17 @@ export default function Home() {
                 <Typography style={{ color: "#FFFFFF" }}>
                   video_id: {query.id}
                 </Typography>
-                <Typography
-                  variant="h6"
-                  style={{ marginTop: "15px", color: "#FFFFFF" }}
+                <Paper
+                  style={{ marginTop: "15px", backgroundColor: "#252526", padding: "15px"}}
+                  elevation={3}
                 >
-                  {query.snippet}
-                </Typography>
+                  <Typography
+                    variant="h6"
+                    style={{ color: "#FFFFFF" }}
+                  >
+                    {query.snippet}
+                  </Typography>
+                </Paper>
               </div>
 
               <div
@@ -280,12 +283,12 @@ export default function Home() {
               style={{
                 borderRadius: "10px",
                 border: "1px solid white",
-                padding: "15px",
+                padding: "25px",
                 maxWidth: "600px",
               }}
             >
               <Typography
-                variant="h6"
+                variant="h5"
                 style={{
                   fontWeight: 600,
                   color: "#FFFFFF",
@@ -344,7 +347,7 @@ export default function Home() {
                       onClick={handleSubmit}
                     >
                       {submitted ? (
-                        <DoneOutlineIcon
+                        <DoneIcon
                           fontSize="large"
                           style={{ color: "#000000", marginRight: "10px" }}
                         />
@@ -358,7 +361,7 @@ export default function Home() {
                         variant="h5"
                         style={{ color: "#000000", fontWeight: 600 }}
                       >
-                        {submitted ? "Done!" : "Submit"}
+                        {submitted ? "Posted" : "Post"}
                       </Typography>
                     </Button>
                   </div>
@@ -368,7 +371,7 @@ export default function Home() {
               {pressed ? (
                 <div style={{ marginTop: "60px" }}>
                   <Typography
-                    variant="h6"
+                    variant="h5"
                     style={{
                       textAlign: "left",
                       color: "#FFFFFF",
@@ -380,7 +383,17 @@ export default function Home() {
                   </Typography>
 
                   <div>
-                    <Typography style={{ textAlign: "left", color: "#FFFFFF" }}>
+                    <Typography
+                      variant="h6"
+                      style={{
+                        textAlign: "left",
+                        color: submitted
+                          ? "#00FF00"
+                          : error
+                          ? "#EE4B2B"
+                          : "#FFFFFF",
+                      }}
+                    >
                       <div>Status Code: {resCode}</div>
                     </Typography>
                   </div>
@@ -393,16 +406,27 @@ export default function Home() {
                   >
                     <span>
                       <Typography
-                        style={{ textAlign: "left", color: "#FFFFFF" }}
+                        variant="h6"
+                        style={{
+                          textAlign: "left",
+                          color: submitted
+                            ? "#00FF00"
+                            : error
+                            ? "#EE4B2B"
+                            : "#FFFFFF",
+                        }}
                       >
-                        <div>Server Response: {resText}</div>
+                        <div>Message: {resText}</div>
                       </Typography>
                     </span>
 
                     <span>
-                      <Typography style={{ color: "#FFFFFF" }}>
-                        <a href="https://forms.gle/RVMkHNG8uhqkTvZH6">
-                          Send Help
+                      <Typography variant="h6" style={{ color: "#FFFFFF" }}>
+                        <a
+                          href="https://forms.gle/RVMkHNG8uhqkTvZH6"
+                          target="_blank"
+                        >
+                          Report Issue
                         </a>
                       </Typography>
                     </span>
