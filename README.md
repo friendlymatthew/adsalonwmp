@@ -2,7 +2,7 @@
 
 `adsalonwmp` is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
 
-- [For Devs](https://docs.google.com/document/d/1z_uooKfthy-TI4LMEwd2Sj5CkCwCkRZJSUHF08o2_3E/edit?usp=sharing) - learn more about AdSalon features
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -15,6 +15,20 @@ For an extensive user guide, please check out the following documents:
 
 
 ## Documentation
+
+- [For Devs](https://docs.google.com/document/d/1z_uooKfthy-TI4LMEwd2Sj5CkCwCkRZJSUHF08o2_3E/edit?usp=sharing) - learn more about AdSalon features
+
+### Packages
+[material-ui]
+
+| Package     |                                                                       |
+| ----------- | --------------------------------------------------------------------------------- |
+| [`material-ui`](https://mui.com) | - /core - /icons - /lab                   |
+| `axios`     |                                            |
+| `mongoose` | |
+| `react-player` | |
+| `typeface-lato` | | 
+
 
 ### Variables
 
