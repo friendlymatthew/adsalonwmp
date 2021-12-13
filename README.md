@@ -66,7 +66,7 @@ For an extensive user guide, please check out the following documents:
 
 ### Clip Schema
 | Schema Elements | Type              | Source | 
-| _______________ | _________________ | ________________  | 
+| ----------------------------- | ------------- | -------------------------------------------------------------- |
 | `market` | String | query.market | 
 | `station` | String | query.station | 
 | `title` | String | query.title | 
