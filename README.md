@@ -1,16 +1,16 @@
-## About
+# About
 
 [`adsalonwmp`](https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357) is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Usage
+# Usage
 
 For an extensive user guide, please check out the following documents:
 
 - [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - watch a sample run through
 
-## Documentation
+# Documentation
 
 - [For Devs](https://docs.google.com/document/d/1z_uooKfthy-TI4LMEwd2Sj5CkCwCkRZJSUHF08o2_3E/edit?usp=sharing) - learn more about AdSalon features
 
@@ -56,24 +56,27 @@ For an extensive user guide, please check out the following documents:
 | `handleStop()`    | event handler function that updates `stop` and `stop` variables      |
 | `handleSubmit(e)` | event handler function that verifies then calls `createClip()`       |
 
-## Getting Data
+# Getting Data
 
 We pass in specific values through web parameters within the url. A sample url would be: https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357
 
 Observe each query is organized in a key=value pairing like such:
-| Key | Pair |
-| ---- | ---- |
-| market | Portland |
-| station | WPFO |
-| title | DailyMailTV |
+
+### Sample
+
+| Key     | Pair                                                   |
+| ------- | ------------------------------------------------------ |
+| market  | Portland                                               |
+| station | WPFO                                                   |
+| title   | DailyMailTV                                            |
 | snippet | be+taking+to+make+the+risks+are+worth+their+rewards... |
-| coder | eraab |
-| url | covid/WXPFO_20200619_1100PM.mp4 |
-| id | 4 |
-| seek | 1357 |
+| coder   | eraab                                                  |
+| url     | covid/WXPFO_20200619_1100PM.mp4                        |
+| id      | 4                                                      |
+| seek    | 1357                                                   |
 
+We are able to store each value with our `query.KEY` variable.
 
-We are able to store each key=value with our `query` variable. 
 ### Queries
 
 | Query Key | Variable Name   | Description                                                                                        |
@@ -87,7 +90,7 @@ We are able to store each key=value with our `query` variable.
 | `id`      | {query.id}      | unique video id                                                                                    |
 | `seek`    | {query.seek}    | the suggested start time in seconds of where the snippet is said within the video clip             |
 
-## Sending Data
+# Sending Data
 
 Each clip data stores the following variables.
 
@@ -105,7 +108,7 @@ Each clip data stores the following variables.
 | `start`         | Number | `startSec` state | user generated |
 | `stop`          | Number | `stopSec` state  | user generated |
 
-## HTML Components
+# HTML Components
 
 ### React Player
 
