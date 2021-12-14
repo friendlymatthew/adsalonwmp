@@ -143,11 +143,12 @@ We call our `axios` variable to post a ClipSchema to our server. We update the `
 
 # HTML Components
 <br />
+
 ### React Player
 
-React video player component
+#### React video player component
 
-Props Used
+#### Props Used
 | Prop | Value |
 | ---------- | -------------------- |
 | `ref` | `reference` variable |
