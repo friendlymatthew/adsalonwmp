@@ -10,15 +10,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 For an extensive user guide, please check out the following document and videos:
 
-- [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - watch a sample run through
+- [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - a step by step manual for Wesleyan Media Project coders
 
-- [Run Through]() - watch a demo of how to
-
-- [Troubleshooting]()
 
 # Documentation
 
-- [For Devs](https://docs.google.com/document/d/1z_uooKfthy-TI4LMEwd2Sj5CkCwCkRZJSUHF08o2_3E/edit?usp=sharing) - learn more about AdSalon features
 
 ### Packages
 

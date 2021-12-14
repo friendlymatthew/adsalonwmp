@@ -27,7 +27,9 @@ export default function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6">{props.coder}&apos;s workspace</Typography>
+          <Typography className={classes.title} variant="h6">
+            {props.coder}&apos;s workspace
+          </Typography>
 
           <IconButton>
             <a href="https://github.com/matthewkim0/adsalonwmp" target="_blank">
