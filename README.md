@@ -163,9 +163,9 @@ playing controls />
 
 ### Video Information
 
-Video description component
+#### Video description component
 
-Variables Used
+#### Variables Used
 | Variable |
 | ---------- |
 | `{query.title}` |
@@ -199,10 +199,11 @@ Variables Used
     </div>
 ```
 <br />
-### Coder Toolbar
-Toolbar for coder actions involving seeking and marking times
 
-Methods Used
+### Coder Toolbar
+#### Toolbar for coder actions involving seeking and marking times
+
+#### Methods Used
 | Method |
 | ---------- |
 | `handleSeek()` |
@@ -268,9 +269,9 @@ Methods Used
 <br />
 
 ### Your Submission
-Submission card that presents marked times and submission button
+#### Submission card that presents marked times and submission button
 
-Variables Used
+#### Variables Used
 | Variable | 
 | -------- |
 | `submitted` | 
@@ -372,7 +373,7 @@ Methods Used
 ### Server Response
 #### Server response to coder submitting data
 
-Variables Used
+#### Variables Used
 | Variable | 
 | -------- |
 | `pressed` | 
