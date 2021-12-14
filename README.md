@@ -142,7 +142,7 @@ axios
 We call our `axios` variable to post a ClipSchema to our server. We update the `submitted` state if `response.status` is 201. We update the `error` state otherwise.
 
 # HTML Components
-
+<br />
 ### React Player
 
 React video player component
@@ -159,6 +159,7 @@ Props Used
 <ReactPlayer ref={reference} url={`https://wesmedia.wesleyan.edu/${query.url}`}
 playing controls />
 ```
+<br />
 
 ### Video Information
 
@@ -197,7 +198,7 @@ Variables Used
         </Paper>
     </div>
 ```
-
+<br />
 ### Coder Toolbar
 Toolbar for coder actions involving seeking and marking times
 
@@ -264,6 +265,7 @@ Methods Used
         </span>
     </div>
 ```
+<br />
 
 ### Your Submission
 Submission card that presents marked times and submission button
@@ -368,7 +370,7 @@ Methods Used
 <br />
 
 ### Server Response
-Server response to coder submitting data
+#### Server response to coder submitting data
 
 Variables Used
 | Variable | 
