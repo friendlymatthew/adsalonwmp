@@ -8,13 +8,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # Usage
 
-For an extensive user guide, please check out the following document and videos:
+For an extensive user guide, please check out the following document:
 
-- [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing) - a step by step manual for Wesleyan Media Project coders
-
+- [User Guide](https://docs.google.com/document/d/1N5uHkGX4boBQyj82vzMRa_v3SJmHPs_KBj1AEabEao0/edit?usp=sharing)
 
 # Documentation
-
 
 ### Packages
 
@@ -147,12 +145,33 @@ We call our `axios` variable to post a ClipSchema to our server. We update the `
 
 ### React Player
 
+React video player component
+
+Props Used
+| Prop | Value |
+| ---------- | -------------------- |
+| `ref` | `reference` variable |
+| `url` | `{query.url}` |
+| `playing` | true |
+| `controls` | true |
+
 ```html
 <ReactPlayer ref={reference} url={`https://wesmedia.wesleyan.edu/${query.url}`}
 playing controls />
 ```
 
 ### Video Information
+
+Video description component
+
+Variables Used
+| Variable |
+| ---------- |
+| `{query.title}` |
+| `{query.station}` |
+| `{query.market}` |
+| `{query.id}` |
+| `{query.snippet}` |
 
 ```html
     <div>
@@ -180,6 +199,14 @@ playing controls />
 ```
 
 ### Coder Toolbar
+Toolbar for coder actions involving seeking and marking times
+
+Methods Used
+| Method |
+| ---------- |
+| `handleSeek()` |
+| `handleStart()` |
+| `handleStop()` |
 
 ```html
     <div
@@ -239,6 +266,21 @@ playing controls />
 ```
 
 ### Your Submission
+Submission card that presents marked times and submission button
+
+Variables Used
+| Variable | 
+| -------- |
+| `submitted` | 
+| `start` | 
+| `stop` |
+
+Methods Used
+| Method |
+| ---------- |
+| `handleSeekStart()` |
+| `handleSeekStop()` |
+| `handleSubmit()` |
 
 ```html
     <Typography
@@ -324,7 +366,16 @@ playing controls />
 ```
 
 ### Server Response
+Server response to coder submitting data
 
+Variables Used
+| Variable | 
+| -------- |
+| `pressed` | 
+| `submitted` | 
+| `error` |
+| `resCode` |
+| `resText` | 
 ```html
     {pressed ? (
         <div style={{ marginTop: "60px" }}>
