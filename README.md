@@ -7,7 +7,7 @@
 
 ![release](https://img.shields.io/badge/release-v.0.0.2-blue)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The project is hosted on a [MongoDB](https://www.mongodb.com/) server.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and hosted on a [MongoDB](https://www.mongodb.com/) server.
 
 # Usage
 
