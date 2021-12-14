@@ -1,4 +1,5 @@
 # *WELCOME TO AD SALON*
+#### Written by Matthew Kim
 
 # About
 
