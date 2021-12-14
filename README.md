@@ -1,3 +1,5 @@
+# *WELCOME TO AD SALON*
+
 # About
 
 [`adsalonwmp`](https://adsalonwmp.vercel.app/?market=Portland&station=WPFO&title=DailyMailTV&snippet=be+taking+to+make+the+risks+are+worth+their+rewards+medical+staff+housekeeping+and+that+of+course+--+jesse:+jay+jacobs+the+ceo+of+the+timberlake+family+of+camps+is+talking+about+what+it+takes+to+operate+a+summer+camp+in+the+time+of+covid-19+before+the+recently+announced+new+york+ban+jacobs+had+planned+to+open+some+of+his&coder=eraab&url=covid/xWPFO_20200619_1100PM.mp4&id=4&seek=1357) is an internal video annotation web tool that crowdsources data for the [Wesleyan Media Project](https://mediaproject.wesleyan.edu/).
@@ -142,7 +144,6 @@ axios
 We call our `axios` variable to post a ClipSchema to our server. We update the `submitted` state if `response.status` is 201. We update the `error` state otherwise.
 
 # HTML Components
-<br />
 
 ### React Player
 
